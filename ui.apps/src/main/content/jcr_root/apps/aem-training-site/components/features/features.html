@@ -1,0 +1,27 @@
+<sly data-sly-use.feature="com.aem.training.site.core.models.FeaturesModel">
+	<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+		data-sly-call="${templates.placeholder @ isEmpty = !feature.featureItems}"></sly>
+	<div class="container-flex">
+		<div class="features-content row">
+			<div data-sly-list.item="${feature.featureItems}" data-sly-unwrap>
+				<div data-cmp-hook-accordion="item">
+					<div data-sly-test="${item.imagePath}" class="feature-image ${item.desiredPlacement}">
+						<img class="small-img" src="${item.imagePath}"
+							alt="${item.imageAltText}" />
+					</div>
+					<div data-sly-test="${item.imagePath}" class="feature-text">
+						<h4 class="title">${item.title}</h4>
+						<p>${item.paragraph}</p>
+						<div data-sly-test="${item.url}">
+							<p>
+								<a class="single-line-link" href="${item.url}">${item.linkTitle}
+									<!-- span class="arrow-right"></span -->
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</sly>
