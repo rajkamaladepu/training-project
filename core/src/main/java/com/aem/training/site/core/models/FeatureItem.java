@@ -9,8 +9,6 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 @Model(adaptables = { Resource.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class FeatureItem {
 
-    private SlingHttpServletRequest request;
-
     @ValueMapValue
     public String title;
 
@@ -91,7 +89,4 @@ public class FeatureItem {
         this.linkTitle = linkTitle;
     }
     
-    public void injectRequest(SlingHttpServletRequest request) {
-  	   this.request = request;
-     }
 }
