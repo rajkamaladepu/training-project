@@ -204,7 +204,7 @@
                                                     286 x 164 (4 paragraphs) "
                                                     name="./imagePath"
                                                     required="{Boolean}true" 
-                                                    rootPath="/content/dam/mycity" />
+                                                    rootPath="/content/dam" />
                                                 <imageDecorative
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
