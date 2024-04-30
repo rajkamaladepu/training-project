@@ -1,55 +1,44 @@
 package com.aem.training.site.core.models;
 
-
 import java.util.List;
-import java.util.Optional;
-
 import javax.annotation.PostConstruct;
-
-import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Exporter;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ChildResource;
-import org.apache.sling.models.annotations.injectorspecific.Self;
-
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import com.adobe.cq.export.json.ComponentExporter;
 import com.adobe.cq.export.json.ExporterConstants;
 
-@Model(adaptables = {SlingHttpServletRequest.class},
-        adapters = { ComponentExporter.class},
-        defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL,
-        resourceType = "apps/aem-training-site/components/features")
-@Exporter( name = ExporterConstants.SLING_MODEL_EXPORTER_NAME,
-        extensions = ExporterConstants.SLING_MODEL_EXTENSION)
+@Model(adaptables = { Resource.class }, adapters = {
+		ComponentExporter.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL, resourceType = "apps/aem-training-site/components/features")
+@Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
 public class FeaturesModel implements ComponentExporter {
 
-    @Self
-    private SlingHttpServletRequest request;
-    
-    @ChildResource (name="featureItems")
-    List<FeatureItem> featureItems;
+	@ValueMapValue
+	private String title;
+	
+	public String getTitle() {
+		return title;
+	}
 
-    public List<FeatureItem> getFeatureItems() {
-        return featureItems;
-    }
+	@ChildResource(name = "featureItems")
+	List<FeatureItem> featureItems;
 
-    @PostConstruct
-    protected void init() {
-    	injectRequestToFeatureItems(featureItems);
-    }
+	public List<FeatureItem> getFeatureItems() {
+		return featureItems;
+	}
 
-    @Override
-    public String getExportedType() {
-        return "apps/aem-training-site/components/features";
-    }
-    
-    private void injectRequestToFeatureItems(List<FeatureItem> featureItems) {
-		Optional.ofNullable(featureItems).ifPresent(  items -> {
-			for(FeatureItem item:items) {
-				item.injectRequest(request);
-			}
-		});
-    }
+	@PostConstruct
+	protected void init() {
+		//additional processing
+	}
+
+	@Override
+	public String getExportedType() {
+		return "apps/aem-training-site/components/features";
+	}
+
 
 }
