@@ -1,0 +1,50 @@
+<sly data-sly-use.testimonial="com.aem.training.site.core.models.TestimonialsModel">
+	<section class="client_section layout_padding">
+	    <div class="container ">
+	      <div class="heading_container heading_center">
+	        <h2>
+	          ${testimonial.title}
+	        </h2>
+	        <hr>
+	      </div>
+	      <div id="carouselExample2Controls" class="carousel slide" data-ride="carousel">
+	        <div class="carousel-inner" data-sly-list.testimonial="${testimonial.testimonials}">
+	          <div class="carousel-item active">
+	            <div class="row">
+	              <div class="col-lg-7 col-md-9 mx-auto">
+	                <div class="client_container ">
+	                  <div class="img-box">
+	                    <img src="${testimonial.imagePath}" alt="">
+	                  </div>
+	                  <div class="detail-box">
+	                    <h5>
+	                      ${testimonial.name}
+	                    </h5>
+	                    <p> ${testimonial.testimonial} </p>
+	                    <span>
+	                      <i class="fa fa-quote-left" aria-hidden="true"></i>
+	                    </span>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="carousel_btn-box">
+	          <a class="carousel-control-prev" href="#carouselExample2Controls" role="button" data-slide="prev">
+	            <span>
+	              <i class="fa fa-arrow-left" aria-hidden="true"></i>
+	            </span>
+	            <span class="sr-only">${properties.previous}</span>
+	          </a>
+	          <a class="carousel-control-next" href="#carouselExample2Controls" role="button" data-slide="next">
+	            <span>
+	              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+	            </span>
+	            <span class="sr-only">${properties.next}</span>
+	          </a>
+	        </div>
+	      </div>
+	    </div>
+	  </section>
+  </sly>
