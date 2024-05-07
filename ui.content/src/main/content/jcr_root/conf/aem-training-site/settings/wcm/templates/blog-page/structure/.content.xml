@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[mobile/groups/responsive]"
+        cq:lastModified="{Date}2024-05-07T16:34:55.785-07:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/aem-training-site/settings/wcm/templates/blog-page"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="aem-training-site/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aem-training-site/components/container"
+            layout="responsiveGrid">
+            <experiencefragment-header
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aem-training-site/components/experiencefragment"
+                fragmentVariationPath="/content/experience-fragments/aem-training-site/us/en/site/header/master"/>
+            <image
+                jcr:created="{Date}2024-05-07T16:24:02.722-07:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-05-07T16:31:15.703-07:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aem-training-site/components/image"
+                fileReference="/content/dam/core-components-examples/library/sample-assets/mountain-range.jpg"
+                imageFromPageImage="false">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="8"/>
+                </cq:responsive>
+            </image>
+            <text
+                jcr:created="{Date}2024-05-07T16:24:26.034-07:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-05-07T16:24:26.034-07:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aem-training-site/components/text"
+                editable="{Boolean}true">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="4"/>
+                </cq:responsive>
+            </text>
+            <features
+                jcr:created="{Date}2024-05-07T16:24:36.932-07:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-05-07T16:24:36.932-07:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aem-training-site/components/features"
+                editable="{Boolean}true"/>
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aem-training-site/components/container"
+                editable="{Boolean}true"
+                layout="responsiveGrid"/>
+        </root>
+        <cq:responsive jcr:primaryType="nt:unstructured">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <phone
+                    jcr:primaryType="nt:unstructured"
+                    title="Smaller Screen"
+                    width="{Long}768"/>
+                <tablet
+                    jcr:primaryType="nt:unstructured"
+                    title="Tablet"
+                    width="{Long}1200"/>
+            </breakpoints>
+        </cq:responsive>
+    </jcr:content>
+</jcr:root>
