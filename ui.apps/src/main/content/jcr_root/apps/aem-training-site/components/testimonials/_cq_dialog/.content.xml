@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Testimonials"
+    extraClientlibs="[training.mfminmax,training.mfaltvalidator]"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <testimonials
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Testimonial"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                        	<title
+                                 jcr:primaryType="nt:unstructured"
+                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                 fieldLabel="Title"
+                                 name="./title"
+                                 required="{Boolean}true" />
+                            <testimonials
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldDescription="Add items"
+                                fieldLabel="List Testimonials"
+                                validation="nyc-minmax">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    minimum-items="2"
+                                    maximum-items="4" />
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./testimonials">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <name
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Persons Name"
+                                                    name="./name"
+                                                    required="{Boolean}true" />
+                                                <textarea
+					                                 jcr:primaryType="nt:unstructured"
+					                                 sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+					                                 fieldLabel="Longer text"
+					                                 name="./testimonial"
+					                                 required="{Boolean}true" />
+                                                <imagePath
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldLabel="Image"
+                                                    fieldDescription="600 x 227 (2 paragraphs)
+                                                    392 x 227 (3 paragraphs)
+                                                    286 x 164 (4 paragraphs) "
+                                                    name="./imagePath"
+                                                    required="{Boolean}true" 
+                                                    rootPath="/content/dam/" />
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    max-items="2" />
+                            </testimonials>
+                            <next
+                                 jcr:primaryType="nt:unstructured"
+                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                 fieldLabel="Next Button Label"
+                                 name="./next"
+                                 required="{Boolean}true" />
+                            <previous
+                                 jcr:primaryType="nt:unstructured"
+                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                 fieldLabel="Previous Button Label"
+                                 name="./previous"
+                                 required="{Boolean}true" />
+                        </items>
+                    </column>
+                </items>
+            </testimonials>
+        </items>
+    </content>
+</jcr:root>

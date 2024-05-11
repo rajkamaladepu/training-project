@@ -29,8 +29,8 @@
                                  jcr:primaryType="nt:unstructured"
                                  sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
                                  fieldLabel="Longer text"
-                                 name="./textarea"
-                                 required="{Boolean}true" />
+                                 name="./textArea"
+                                 required="{Boolean}true" ></textarea>
                               <imagePath
                                  jcr:primaryType="nt:unstructured"
                                  sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"

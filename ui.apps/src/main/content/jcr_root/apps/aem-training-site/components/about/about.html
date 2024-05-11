@@ -1,6 +1,13 @@
-<sly data-sly-use.feature="com.aem.training.site.core.models.FeaturesModel">
+<sly data-sly-use.about="com.aem.training.site.core.models.AboutModel">
 	<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
 		data-sly-call="${templates.placeholder @ isEmpty = !feature.featureItems}"></sly>
+		
+	 <h1>Title: ${about.title} </h1> <br>
+	<h2>Longer Text: ${about.textArea}</h2> <br>
+	
+     <h3>Image Path: ${about.imagePath}</h3> 
+	
+	
 	<div class="container-flex">
 		<div class="features-content row">
 			<div data-sly-list.item="${feature.featureItems}" data-sly-unwrap>
