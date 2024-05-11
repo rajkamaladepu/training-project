@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-05-07T16:35:25.774-07:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/aem-training-site/settings/wcm/templates/blog-page"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="aem-training-site/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aem-training-site/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aem-training-site/components/container"
+                layout="responsiveGrid"/>
+            <text
+                jcr:created="{Date}2024-05-07T16:24:26.034-07:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-05-07T16:35:25.772-07:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aem-training-site/components/text"
+                text="&lt;h3>Resources&lt;/h3>&#xd;&#xa;&lt;ul>&#xd;&#xa;&lt;li>&lt;a href=&quot;https://aws.amazon.com/industries?sc_ichannel=ha&amp;amp;sc_icampaign=acq_awsblogsb&amp;amp;sc_icontent=industries-resources&quot;>AWS for Industry&lt;/a>&lt;/li>&#xd;&#xa;&lt;li>&lt;a href=&quot;https://aws.amazon.com/events?sc_ichannel=ha&amp;amp;sc_icampaign=acq_awsblogsb&amp;amp;sc_icontent=industries-resources&quot;>AWS Events&lt;/a>&lt;/li>&#xd;&#xa;&lt;li>&lt;a href=&quot;https://aws.amazon.com/training/?sc_ichannel=ha&amp;amp;sc_icampaign=acq_awsblogsb&amp;amp;sc_icontent=industries-resources&quot;>AWS Training &amp;amp; Certification&lt;/a>&lt;/li>&#xd;&#xa;&lt;li>&lt;a href=&quot;https://aws.amazon.com/whitepapers/?sc_ichannel=ha&amp;amp;sc_icampaign=acq_awsblogsb&amp;amp;sc_icontent=industries-resources&quot;>AWS Whitepapers&lt;/a>&lt;/li>&#xd;&#xa;&lt;li>&lt;a href=&quot;https://aws.amazon.com/artifact/?sc_ichannel=ha&amp;amp;sc_icampaign=acq_awsblogsb&amp;amp;sc_icontent=industries-resources&quot;>AWS Compliance Reports&lt;/a>&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                textIsRich="true"/>
+            <features
+                jcr:created="{Date}2024-05-07T16:24:36.932-07:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-05-07T16:28:24.689-07:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aem-training-site/components/features"/>
+        </root>
+    </jcr:content>
+</jcr:root>
