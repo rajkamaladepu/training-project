@@ -17,4 +17,12 @@
         </image>
     </jcr:content>
     <us/>
+     <servlets jcr:primaryType="nt:unstructured">
+        <getjson
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="training/service/getjson"/>
+        <postjson
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="training/service/postjson"/>
+    </servlets>
 </jcr:root>
