@@ -17,7 +17,7 @@ import org.osgi.service.component.propertytypes.ServiceDescription;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.day.cq.search.QueryBuilder;
+import com.aem.training.site.core.services.ApplicationService;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -30,7 +30,7 @@ public class GetJSONServlet extends SlingAllMethodsServlet {
 	private static final Logger logger = LoggerFactory.getLogger(GetJSONServlet.class);
 
 	@Reference
-	 private transient QueryBuilder queryBuilder;
+	ApplicationService applicationService;
 
 	@Override
 	protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response)
@@ -48,7 +48,13 @@ public class GetJSONServlet extends SlingAllMethodsServlet {
 		test.addProperty("parentPath", StringUtils.isNotBlank(parentPath) ? parentPath : "Parent Path is Empty");
 		test.addProperty("searchTerm", StringUtils.isNotBlank(searchTerm) ? searchTerm : "searchTerm is Empty");
 		test.addProperty("sortBy", StringUtils.isNotBlank(sortBy) ? sortBy : "sortBy is Empty");
+		test.addProperty("env name", applicationService.getEnvironmentName());
+		test.addProperty("instance", applicationService.getEnvironmentName());
+		test.addProperty("externalLink", applicationService.externalizeLink(request.getResourceResolver(), parentPath));
 		tilesArray.add(test);
+		
+		
+		
 		response.setContentType("application/json");
 		response.getWriter().write(tilesArray.toString());
 		
