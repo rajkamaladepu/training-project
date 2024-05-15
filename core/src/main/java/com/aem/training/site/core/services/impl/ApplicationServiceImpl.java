@@ -1,8 +1,14 @@
 package com.aem.training.site.core.services.impl;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Optional;
 
+import javax.jcr.Session;
+
 import org.apache.commons.lang3.StringUtils;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.osgi.service.component.annotations.Activate;
@@ -17,6 +23,13 @@ import org.slf4j.LoggerFactory;
 import com.aem.training.site.core.services.ApplicationService;
 import com.aem.training.site.core.services.config.ApplicationConfiguration;
 import com.day.cq.commons.Externalizer;
+import com.day.cq.search.PredicateGroup;
+import com.day.cq.search.QueryBuilder;
+import com.day.cq.search.eval.PathPredicateEvaluator;
+import com.day.cq.search.eval.TypePredicateEvaluator;
+import com.day.cq.wcm.api.NameConstants;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 @Component(service = ApplicationService.class, immediate = true)
 @Designate(ocd = ApplicationConfiguration.class)
@@ -65,6 +78,29 @@ public class ApplicationServiceImpl implements ApplicationService {
 
 	public String getInstanceType() {
 		return instanceType;
+	}
+
+	@Override
+	public JsonArray getResources(QueryBuilder queryBuilder, Session session) {
+		final Map<String, String> predicateMap = new HashMap<>();
+		predicateMap.put(PathPredicateEvaluator.PATH, "/content");
+		predicateMap.put(TypePredicateEvaluator.TYPE, NameConstants.NT_PAGE);
+		predicateMap.put("1_property", "@jcr:content/cq:template");
+		predicateMap.put("1_property.value", "/conf/aem-training-site/settings/wcm/templates/page-content");
+		predicateMap.put("orderby", "@jcr:content/cq:lastModified");
+		predicateMap.put("orderby.sort", "desc");
+		predicateMap.put("p.limit", "10");
+		
+		Iterator<Resource> resources = queryBuilder.createQuery(PredicateGroup.create(predicateMap),session).getResult().getResources();
+		JsonArray pageResourcesJson = new JsonArray();
+		while (resources.hasNext()) {
+			Resource resource = resources.next();
+			JsonObject pageResourceJson = new JsonObject();
+			pageResourceJson.addProperty("pagePath", resource.getPath());
+			pageResourceJson.addProperty("Resource Name", resource.getName());
+			pageResourcesJson.add(pageResourceJson);
+		}
+		return pageResourcesJson;
 	}
 
 }

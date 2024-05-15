@@ -1,10 +1,12 @@
 package com.aem.training.site.core.servlets;
 
 import java.io.IOException;
+import java.util.Iterator;
 
 import javax.jcr.Node;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
+import javax.jcr.Session;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 
@@ -24,9 +26,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.aem.training.site.core.services.ApplicationService;
+import com.day.cq.search.QueryBuilder;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 @Component(service = { Servlet.class })
@@ -39,7 +43,10 @@ public class GetJSONServlet extends SlingAllMethodsServlet {
 
 	@Reference
 	ApplicationService applicationService;
-
+	
+	@Reference
+	private QueryBuilder queryBuilder;
+	
 	@Override
 	protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response)
 			throws ServletException, IOException {
@@ -78,7 +85,6 @@ public class GetJSONServlet extends SlingAllMethodsServlet {
 		Page page = pageManager.getPage(parentPath);
 		String pageNameFromAEM = page.getTitle();
 
-		JsonArray tilesArray = new JsonArray();
 		JsonObject test = new JsonObject();
 		test.addProperty("parentPath", StringUtils.isNotBlank(parentPath) ? parentPath : "Parent Path is Empty");
 		test.addProperty("title from JCR API", pageNameFromJCR);
@@ -88,13 +94,11 @@ public class GetJSONServlet extends SlingAllMethodsServlet {
 		test.addProperty("searchTerm", StringUtils.isNotBlank(searchTerm) ? searchTerm : "searchTerm is Empty");
 		test.addProperty("sortBy", StringUtils.isNotBlank(sortBy) ? sortBy : "sortBy is Empty");
 		test.addProperty("env name", applicationService.getEnvironmentName());
-		test.addProperty("instance", applicationService.getEnvironmentName());
-		tilesArray.add(test);
-		
-		
+		test.addProperty("instance", applicationService.getInstanceType());
+		test.add("pages from query", applicationService.getResources(queryBuilder, resourceResolver.adaptTo(Session.class)));
 		
 		response.setContentType("application/json");
-		response.getWriter().write(tilesArray.toString());
+		response.getWriter().write(test.toString());
 		
 	}
 }
