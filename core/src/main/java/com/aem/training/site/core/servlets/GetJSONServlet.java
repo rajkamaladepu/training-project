@@ -1,4 +1,7 @@
 package com.aem.training.site.core.servlets;
+import com.day.cq.wcm.api.Page;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 
 import java.io.IOException;
 
@@ -38,9 +41,20 @@ public class GetJSONServlet extends SlingAllMethodsServlet {
 		logger.debug("entry into doGet method");
 		//   try {
 		// Get request parameters for search
+		
+		String pageTitle = "Page Title Not Found";
+
+		ResourceResolver resolver = request.getResourceResolver();
+
 		String parentPath = request.getParameter("parentPath");
 		String searchTerm = request.getParameter("q");
 		String sortBy = request.getParameter("sortBy");
+		String pagePath = request.getParameter("path");
+		Resource pageResource = resolver.getResource(pagePath);
+		if (pageResource != null && pageResource.adaptTo(Page.class) != null) {
+		    Page page = pageResource.adaptTo(Page.class);
+		    pageTitle = page.getTitle();
+		}
 
 
 		JsonArray tilesArray = new JsonArray();
@@ -48,9 +62,12 @@ public class GetJSONServlet extends SlingAllMethodsServlet {
 		test.addProperty("parentPath", StringUtils.isNotBlank(parentPath) ? parentPath : "Parent Path is Empty");
 		test.addProperty("searchTerm", StringUtils.isNotBlank(searchTerm) ? searchTerm : "searchTerm is Empty");
 		test.addProperty("sortBy", StringUtils.isNotBlank(sortBy) ? sortBy : "sortBy is Empty");
+		test.addProperty("pagePath", StringUtils.isNotBlank(pagePath) ? pagePath: "No Page Path provided");
+		test.addProperty("pageTitle", pageTitle);
 		tilesArray.add(test);
 		response.setContentType("application/json");
 		response.getWriter().write(tilesArray.toString());
+		
 		
 	}
 }

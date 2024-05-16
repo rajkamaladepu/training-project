@@ -12,50 +12,25 @@ import com.adobe.cq.export.json.ComponentExporter;
 import com.adobe.cq.export.json.ExporterConstants;
 
 @Model(adaptables = { Resource.class }, adapters = {
-		ComponentExporter.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL, resourceType = "apps/aem-training-site/components/about")
+		ComponentExporter.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL, resourceType = "apps/aem-training-site/components/fheader")
 @Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
-public class AboutModel implements ComponentExporter {
+public class HeaderModel implements ComponentExporter {
 
-	@ValueMapValue
-	private String title;
-	
-	public String getTitle() {
-		return title;
-	}
-	
-	@ValueMapValue
-	private String textArea;
-	
-	public String getTextArea() {
-		return textArea;
-	}
-	
-	@ValueMapValue
-	private String imagePath;
-	
-	public String getImagePath() {
-		return imagePath;
-	}
+	@ChildResource(name = "headerItems")
+	List<HeaderItem> headerItems;
 
-//	@ChildResource(name = "featureItems")
-//	List<FeatureItem> featureItems;
-
-//	public List<FeatureItem> getFeatureItems() {
-//		return featureItems;
-//	}
+	public List<HeaderItem> getHeaderItems() {
+		return headerItems;
+	}
 
 	@PostConstruct
 	protected void init() {
 		//additional processing
-		title+= " For About";
-		textArea += ": Description for About";
-		imagePath += ": Image Path for About";
-			
 	}
 
 	@Override
 	public String getExportedType() {
-		return "apps/aem-training-site/components/about";
+		return "apps/aem-training-site/components/fheader";
 	}
 
 

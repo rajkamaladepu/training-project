@@ -39,8 +39,8 @@ import java.io.IOException;
 @Component(service = { Servlet.class })
 @SlingServletResourceTypes(
         resourceTypes="aem-training-site/components/page",
-        methods=HttpConstants.METHOD_GET,
-        extensions="txt")
+        methods=HttpConstants.METHOD_GET )
+       // extensions="txt"
 @ServiceDescription("Simple Demo Servlet")
 public class SimpleServlet extends SlingSafeMethodsServlet {
 
@@ -48,9 +48,10 @@ public class SimpleServlet extends SlingSafeMethodsServlet {
 
     @Override
     protected void doGet(final SlingHttpServletRequest req,
-            final SlingHttpServletResponse resp) throws ServletException, IOException {
+        final SlingHttpServletResponse resp) throws ServletException, IOException {
         final Resource resource = req.getResource();
         resp.setContentType("text/plain");
         resp.getWriter().write("Title = " + resource.getValueMap().get(JcrConstants.JCR_TITLE));
+       // resp.getWriter().write(resource);
     }
 }

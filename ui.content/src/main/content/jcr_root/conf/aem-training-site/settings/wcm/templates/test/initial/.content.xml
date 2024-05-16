@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-05-13T14:08:38.192-05:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/aem-training-site/settings/wcm/templates/test"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="aem-training-site/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aem-training-site/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aem-training-site/components/container"
+                layout="responsiveGrid"/>
+            <title
+                jcr:created="{Date}2024-05-13T14:00:59.889-05:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-05-13T14:06:44.463-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aem-training-site/components/title"/>
+            <image
+                jcr:created="{Date}2024-05-13T14:05:41.800-05:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-05-13T14:07:52.913-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aem-training-site/components/image"
+                fileReference="/content/dam/we-retail/en/KCR-images/KCR.png"
+                imageFromPageImage="false"/>
+            <text
+                jcr:created="{Date}2024-05-13T14:05:52.415-05:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-05-13T14:08:38.182-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aem-training-site/components/text"
+                text="&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;&lt;p>&lt;b>Kalvakuntla Chandrashekar Rao&lt;/b>&lt;/p>&#xa;"
+                textIsRich="true"/>
+        </root>
+    </jcr:content>
+</jcr:root>

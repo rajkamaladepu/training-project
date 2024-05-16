@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[mobile/groups/responsive]"
+        cq:lastModified="{Date}2024-05-13T14:31:54.083-05:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/aem-training-site/settings/wcm/templates/finter"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="aem-training-site/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aem-training-site/components/container"
+            layout="responsiveGrid">
+            <title
+                jcr:created="{Date}2024-05-13T14:29:38.230-05:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-05-13T14:29:38.230-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aem-training-site/components/title"
+                editable="{Boolean}true"/>
+            <image
+                jcr:created="{Date}2024-05-13T14:29:45.537-05:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-05-13T14:32:36.956-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aem-training-site/components/image"
+                fileReference="/content/dam/aem-training-site/hero-bg.jpg"
+                imageFromPageImage="false"/>
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aem-training-site/components/container"
+                editable="{Boolean}true"
+                layout="responsiveGrid">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="5"/>
+                </cq:responsive>
+            </container>
+            <container_1402551713
+                jcr:created="{Date}2024-05-13T14:30:07.564-05:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-05-13T14:30:07.564-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aem-training-site/components/container"
+                editable="{Boolean}true">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="1"
+                        width="6"/>
+                </cq:responsive>
+            </container_1402551713>
+        </root>
+        <cq:responsive jcr:primaryType="nt:unstructured">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <phone
+                    jcr:primaryType="nt:unstructured"
+                    title="Smaller Screen"
+                    width="{Long}768"/>
+                <tablet
+                    jcr:primaryType="nt:unstructured"
+                    title="Tablet"
+                    width="{Long}1200"/>
+            </breakpoints>
+        </cq:responsive>
+    </jcr:content>
+</jcr:root>

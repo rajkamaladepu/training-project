@@ -1,34 +1,25 @@
 <sly data-sly-use.about="com.aem.training.site.core.models.AboutModel">
-	<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
-		data-sly-call="${templates.placeholder @ isEmpty = !feature.featureItems}"></sly>
-		
-	 <h1>Title: ${about.title} </h1> <br>
-	<h2>Longer Text: ${about.textArea}</h2> <br>
-	
-     <h3>Image Path: ${about.imagePath}</h3> 
-	
-	
-	<div class="container-flex">
-		<div class="features-content row">
-			<div data-sly-list.item="${feature.featureItems}" data-sly-unwrap>
-				<div data-cmp-hook-accordion="item">
-					<div data-sly-test="${item.imagePath}" class="feature-image ${item.desiredPlacement}">
-						<img class="small-img" src="${item.imagePath}"
-							alt="${item.imageAltText}" />
-					</div>
-					<div data-sly-test="${item.imagePath}" class="feature-text">
-						<h4 class="title">${item.title}</h4>
-						<p>${item.paragraph}</p>
-						<div data-sly-test="${item.url}">
-							<p>
-								<a class="single-line-link" href="${item.url}">${item.linkTitle}
-									<!-- span class="arrow-right"></span -->
-								</a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</sly>
+<section class="about_section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-5 offset-md-1">
+          <div class="detail-box pr-md-2">
+            <div class="heading_container">
+              <h2 class="">
+                ${about.title}
+              </h2>
+            </div>
+            <p class="detail_p_mt">
+            	${about.textArea}  
+            </p>
+			<button> Read More</button>
+          </div>
+        </div>
+        <div class="col-md-6 px-0">
+          <div class="img-box ">
+            <img src="images/about-img.jpg" class="box_img" alt=" ${about.imagePath} ">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

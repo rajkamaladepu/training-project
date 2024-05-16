@@ -10,7 +10,7 @@
         jcr:primaryType="nt:unstructured"
         sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
         <items jcr:primaryType="nt:unstructured">
-            <feature
+            <about
                 jcr:primaryType="nt:unstructured"
                 jcr:title="About"
                 sling:resourceType="granite/ui/components/coral/foundation/container">
@@ -28,7 +28,7 @@
                         	<textarea
                                  jcr:primaryType="nt:unstructured"
                                  sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
-                                 fieldLabel="Longer text"
+                                 fieldLabel="Description"
                                  name="./textArea"
                                  required="{Boolean}true" ></textarea>
                               <imagePath
@@ -40,17 +40,11 @@
                                  286 x 164 (4 paragraphs) "
                                  name="./imagePath"
                                  required="{Boolean}true" 
-                                 rootPath="/content/dam/mycity" />
-                              <button
-                                  jcr:primaryType="nt:unstructured"
-                                  sling:resourceType="core/wcm/components/form/button/v2/button"
-                                  fieldLabel="Button"
-                                  name="./button"
-                                  required="{Boolean}true" />                                 
+                                 rootPath="/content/dam/mycity" />                               
                         </items>
                     </column>
                 </items>
-            </feature>
+            </about>
         </items>
     </content>
 </jcr:root>

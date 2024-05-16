@@ -1,27 +1,35 @@
-<sly data-sly-use.feature="com.aem.training.site.core.models.FeaturesModel">
-	<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
-		data-sly-call="${templates.placeholder @ isEmpty = !feature.featureItems}"></sly>
-	<div class="container-flex">
-		<div class="features-content row">
-			<div data-sly-list.item="${feature.featureItems}" data-sly-unwrap>
-				<div data-cmp-hook-accordion="item">
-					<div data-sly-test="${item.imagePath}" class="feature-image ${item.desiredPlacement}">
-						<img class="small-img" src="${item.imagePath}"
-							alt="${item.imageAltText}" />
-					</div>
-					<div data-sly-test="${item.imagePath}" class="feature-text">
-						<h4 class="title">${item.title}</h4>
-						<p>${item.paragraph}</p>
-						<div data-sly-test="${item.url}">
-							<p>
-								<a class="single-line-link" href="${item.url}">${item.linkTitle}
-									<!-- span class="arrow-right"></span -->
-								</a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</sly>
+<sly data-sly-use.ourteam="com.aem.training.site.core.models.OurTeamModel">
+<section class="team_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          ${properties.title}
+        </h2>
+        <p>
+        ${properties.textarea}
+        </p>
+      </div>
+      <div data-sly-list.ourteam="${ourteam.ourteamitems}">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="images/t1.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>${ourteam.name}
+              </h5>
+              <h6 class="">
+                ${ourteam.designation}
+              </h6>
+               <h6 class="">
+                ${ourteam.imagePath}
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+  </section>
+  </sly>
