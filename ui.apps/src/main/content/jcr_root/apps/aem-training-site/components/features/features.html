@@ -1,7 +1,8 @@
 <sly data-sly-use.feature="com.aem.training.site.core.models.FeaturesModel">
 	<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
 		data-sly-call="${templates.placeholder @ isEmpty = !feature.featureItems}"></sly>
-	${properties.title}
+	${properties.title} <br>
+	env name = ${feature.envName}
 	<div class="container-flex"  data-sly-attribute.class="${properties.title}">
 		<div class="features-content row">
 			<div data-sly-list.item="${feature.featureItems}" data-sly-unwrap>
