@@ -24,19 +24,19 @@ public class GetUserIdServlet extends SlingAllMethodsServlet {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Override
-	protected void doGet(final SlingHttpServletRequest req, final SlingHttpServletResponse resp) throws IOException {
-		resp.setContentType("text/plain;charset=UTF-8");
-		String responseStatus = "Error while sending email!!";
+	protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) throws IOException {
+		response.setContentType("text/plain;charset=UTF-8");
+		String responseStatus = "";
 		try {
-			ResourceResolver resourceResolver = req.getResourceResolver();
+			ResourceResolver resourceResolver = request.getResourceResolver();
 			Session session = resourceResolver.adaptTo(Session.class);
 			String userId = session.getUserID();
 			logger.info("userID is {}", userId);
 			responseStatus = userId;
-			resp.setStatus(SlingHttpServletResponse.SC_OK);
+			response.setStatus(SlingHttpServletResponse.SC_OK);
 		} catch (Exception e) {
-			resp.setStatus(SlingHttpServletResponse.SC_BAD_REQUEST);
+			response.setStatus(SlingHttpServletResponse.SC_BAD_REQUEST);
 		}
-		resp.getWriter().print(responseStatus);
+		response.getWriter().print(responseStatus);
 	}
 }
