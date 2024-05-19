@@ -1,0 +1,48 @@
+<sly data-sly-use.feature="com.aem.training.site.core.models.GetintouchModel">
+<section class="contact_section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 px-0">
+        <div class="img-box"><img src="assets/images/contact-img.jpg" class="box_img" alt="website template image">
+        ${properties.image}
+        </div>
+      </div>
+      <div class="col-md-5 mx-auto">
+        <div class="form_container">
+          <div class="heading_container heading_center">
+            <h2>Get In Touch</h2>
+               ${properties.title}
+          </div>
+          <form action="#" method="post">
+            <div class="form-row">
+              <div class="form-group col">
+                   ${properties.name}
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-lg-6">
+              
+                   ${properties.phonenum}
+              </div>
+              
+            </div>
+            <div class="form-row">
+              <div class="form-group col">
+                
+                   ${properties.email}
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col">
+               
+                   ${properties.message}
+              </div>
+            </div>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</sly>

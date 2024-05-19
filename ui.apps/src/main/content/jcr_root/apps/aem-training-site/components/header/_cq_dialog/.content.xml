@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="header Properties"
+    extraClientlibs="[training.mfminmax,training.mfaltvalidator]"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <feature
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Feature"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                        <location
+                                 jcr:primaryType="nt:unstructured"
+                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                 fieldLabel="location"
+                                 name="./location"
+                                 required="{Boolean}true" />
+                        	<phnum
+                                 jcr:primaryType="nt:unstructured"
+                                 sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                 fieldLabel="phnum"
+                                 name="./phnum"
+                                 required="{Boolean}true" />
+                            <email
+                                 jcr:primaryType="nt:unstructured"
+                                 sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                 fieldLabel="email"
+                                 name="./email"
+                                 required="{Boolean}true" />
+                            <fburl
+                                 jcr:description="Insert Hyperlink"
+                                 jcr:primaryType="nt:unstructured"
+                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                 fieldLabel="fburl"
+                                 name="./fburl"
+                                 rootPath="/content/mycity/us/en/business" />
+                              <xurl
+                                 jcr:description="Insert Hyperlink"
+                                 jcr:primaryType="nt:unstructured"
+                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                 fieldLabel="xurl"
+                                 name="./xurl"
+                                 rootPath="/content/mycity/us/en/business" />
+                              <linurl
+                                 jcr:description="Insert Hyperlink"
+                                 jcr:primaryType="nt:unstructured"
+                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                 fieldLabel="linurl"
+                                 name="./linurl"
+                                 rootPath="/content/mycity/us/en/business" />
+                             <insurl
+                                 jcr:description="Insert Hyperlink"
+                                 jcr:primaryType="nt:unstructured"
+                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                 fieldLabel="insurl"
+                                 name="./insurl"
+                                 rootPath="/content/mycity/us/en/business" />               
+                            <fintertitle
+                                 jcr:primaryType="nt:unstructured"
+                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                 fieldLabel="fintertitle"
+                                 name="./fintertitle"
+                                 required="{Boolean}true" />
+                          <linkItems
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldDescription="linkItems"
+                                fieldLabel="linkItems"
+                                validation="nyc-minmax">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    minimum-items="2"
+                                    maximum-items="4" />
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./featureItems">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                            <url
+                                                    jcr:description="Insert Hyperlink"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldLabel="Link URL"
+                                                    name="./url"
+                                                    rootPath="/content/mycity/us/en/business" />
+                                                <linkTitle
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Link Text to Display"
+                                                    name="./linkTitle" />
+                                                   </items>
+                                        </column>
+                                    </items>
+                                </field>
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    max-items="2" />
+                            </linkItems>
+                             <searchhere
+                                 jcr:primaryType="nt:unstructured"
+                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                 fieldLabel="searchhere"
+                                 name="./searchhere"/>
+                        </items>
+                    </column>
+                </items>
+            </feature>
+        </items>
+    </content>
+</jcr:root>

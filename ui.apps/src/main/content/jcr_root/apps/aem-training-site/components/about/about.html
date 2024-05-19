@@ -1,0 +1,28 @@
+<sly data-sly-use.feature="com.aem.training.site.core.models.AboutModel">
+<section class="about_section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-5 offset-md-1">
+          <div class="detail-box pr-md-2">
+            <div class="heading_container">
+              <h2 class="">
+                ${properties.title}
+              </h2>
+            </div>
+            <p class="detail_p_mt">
+             ${properties.textarea}
+              </p>
+            <a href="about.html" class="">
+              Read More
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 px-0">
+          <div class="img-box ">
+            <img src="images/about-img.jpg" class="box_img" alt="about img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</sly>

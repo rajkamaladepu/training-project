@@ -2,5 +2,5 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
     cq:icon="article"
     jcr:primaryType="cq:Component"
-    jcr:title="ourteam"
+    jcr:title="Footer Component"
     componentGroup="AEM Training Site - Content"/>
