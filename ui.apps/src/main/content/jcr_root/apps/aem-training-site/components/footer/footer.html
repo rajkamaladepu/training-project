@@ -1,87 +1,71 @@
-<sly data-sly-use.feature="com.aem.training.site.core.models.FooterModel">
-	<section class="info_section ">
-    <div class="container">
-      <div class="info_top">
-        <div class="row">
-          <div class="col-md-3 ">
-            <a class="navbar-brand" href="index.html">
-              ${properties.title}
-            </a>
-          </div>
-          <div class="col-md-5 ">
-            <div class="info_contact">
-              <a href="">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span>
-                  ${properties.location}
-                </span>
-              </a>
-              <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>
-                  ${properties.phnum}
-                </span>
-              </a>
+<sly data-sly-use.footer="com.aem.training.site.core.models.FooterModel">
+    <section class="info_section">
+        <div class="container">
+            <div class="info_top">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a class="navbar-brand" href="index.html">
+                            ${feature.title}
+                        </a>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="info_contact">
+                            <a href="#">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <span>${feature.titleloc}</span>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <span>${feature.phnum}</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="social_box">
+                            <a href="${feature.fburl}">Facebook</a>
+                            <a href="${feature.xurl}">Twitter</a>
+                            <a href="${feature.linurl}">LinkedIn</a>
+                            <a href="${feature.insurl}">Instagram</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="social_box">
-               ${properties.fburl}
-               ${properties.linurl}
-               ${properties.xurl}
-               ${properties.insurl}
+            <div class="info_bottom">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="info_detail">
+                            <h5>${feature.titlecomp}</h5>
+                            <p>${feature.textarea}</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="info_form">
+                            <h5>${feature.titlenews}</h5>
+                            <form action="">
+                                ${feature.email}
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="info_detail">
+                            <h5>${feature.titleser}</h5>
+                            <p>${feature.textareaser}</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6">
+                        <div>
+                            <h5>Useful links</h5>
+                            <ul class="info_menu">
+                                <sly data-sly-list.linkItems="${feature.linkItems}">
+                                    <li>
+                                        <a href="${linkItems.link.url}">${linkItems.link.linkTitle}</a>
+                                    </li>
+                                </sly>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="info_bottom">
-        <div class="row">
-          <div class="col-lg-3 col-md-6">
-            <div class="info_detail">
-              <h5>
-                ${properties.titlecomp}
-              </h5>
-              <p>
-                 ${properties.textarea}
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="info_form">
-              <h5>
-              ${properties.titlenews}
-              </h5>
-              <form action="">
-              ${properties.email}  
-              </form>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="info_detail">
-              <h5>
-               ${properties.titleser}
-              </h5>
-              <p>
-               ${properties.textareaser}
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-6" >
-            <div class="" >
-              <h5>
-                Useful links
-              </h5>
-              <ul class="info_menu" >
-                <li >
-                  <a href="${feature.url}">
-                    ${feature.linkTitle}
-                  </a>
-                </li>
-                </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 </sly>

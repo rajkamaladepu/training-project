@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="ourteamm "
+    extraClientlibs="[training.mfminmax,training.mfaltvalidator]"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <ourteamm
+                jcr:primaryType="nt:unstructured"
+                jcr:title="ourteamm"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                        	<title
+                                 jcr:primaryType="nt:unstructured"
+                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                 fieldLabel="Title"
+                                 name="./title"
+                                 required="{Boolean}true" />
+                             <textarea
+                                 jcr:primaryType="nt:unstructured"
+                                 sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                 fieldLabel="Longer text"
+                                 name="./textarea"
+                                 required="{Boolean}true" />
+                           					<ourteamItems
+    jcr:primaryType="nt:unstructured"
+    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+    composite="{Boolean}true"
+    fieldDescription="Add items"
+    fieldLabel="OurteammItems"
+    validation="nyc-minmax">
+    <granite:data
+        jcr:primaryType="nt:unstructured"
+        minimum-items="2"
+        maximum-items="4" />
+    <field
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container"
+        name="./ourteammItems">
+        <items jcr:primaryType="nt:unstructured">
+            <column
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <imagePath
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                        fieldLabel="Image"
+                        fieldDescription="600 x 227 (2 paragraphs)
+                        392 x 227 (3 paragraphs)
+                        286 x 164 (4 paragraphs) "
+                        name="./imagePath"
+                        required="{Boolean}true" 
+                        rootPath="/content/dam/mycity" />
+                    <name
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="name"
+                        name="./name"
+                        required="{Boolean}true" />
+                    <role
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="role"
+                        name="./role"
+                        required="{Boolean}true" />
+                </items>
+            </column>
+        </items>
+    </field> 
+</ourteamItems>
+
+        </items>
+        </column>
+                </items>
+            </ourteamm>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,25 @@
+<sly data-sly-use.ourteamm="com.aem.training.site.core.models.OurteammModel">
+	<section class="team_section layout_padding">
+	<h1>Our Team</h1>
+  <div class="container">
+    <div class="heading_container heading_center">
+      ${properties.title}
+      ${properties.textarea}
+    </div>
+    <div data-sly-list.ourteamm="${ourteamm.ourteammItems}">
+    <div class="row">
+      <div class="col-md-4 col-sm-6 mx-auto">
+        <div class="box">
+          <div class="img-box">${ourteamm.imagePath}</div>
+          <div class="detail-box">
+            <h5>${ourteamm.name}</h5>
+            <h6>${ourteamm.role}</h6>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+</sly>
