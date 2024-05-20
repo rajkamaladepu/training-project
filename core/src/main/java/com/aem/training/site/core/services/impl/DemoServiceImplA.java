@@ -1,5 +1,7 @@
 package com.aem.training.site.core.services.impl;
 
+import com.aem.training.site.core.services.DemoService;
+
 import java.util.Optional;
 
 import org.apache.commons.lang3.StringUtils;
@@ -18,30 +20,18 @@ import com.aem.training.site.core.services.ApplicationService;
 import com.aem.training.site.core.services.config.ApplicationConfiguration;
 import com.day.cq.commons.Externalizer;
 
-@Component(service = ApplicationService.class, immediate = true)
+@Component(service = DemoService.class, immediate = true , name = "DemoServiceImplA")
 @Designate(ocd = ApplicationConfiguration.class)
-public class ApplicationServiceImpl implements ApplicationService {
+public class DemoServiceImplA implements DemoService {
 
 	@Reference
 	private ResourceResolverFactory resolverFactory;
 	
-	@Reference
-	private Externalizer externalizer;
-	
-	private final Logger logger = LoggerFactory.getLogger(getClass());
-
-	private String environmentName;
-	
-	private String instanceType;
-	
-	private String name;
+	private String name= "DemoServiceImplA";
 
 	@Activate
 	@Modified
-	protected void activate(final ApplicationConfiguration config) {
-		this.instanceType = config.instancetype();
-		this.environmentName = config.environmentname();
-	}
+
 
 	@Deactivate
 	protected void deactivated() {
@@ -49,25 +39,9 @@ public class ApplicationServiceImpl implements ApplicationService {
 	}
 
   @Override
-	public String externalizeLink(ResourceResolver resolver, String path) {
-		return Optional.ofNullable(path).map(oPath -> {
-			try {
-				return externalizer.publishLink(resolver, oPath);
-			} catch (IllegalArgumentException e) {
-				logger.error("Error", e);
-			} 
-			return StringUtils.EMPTY;
-		}).orElse(StringUtils.EMPTY);
+	public String getName() {
+		return name;
 	}
 
-
-	public String getEnvironmentName() {
-		return environmentName;
-	}
-
-	public String getInstanceType() {
-		return instanceType;
-	}
-	
 
 }
