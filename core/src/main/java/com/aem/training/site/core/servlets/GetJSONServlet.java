@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
@@ -96,6 +97,11 @@ public class GetJSONServlet extends SlingAllMethodsServlet {
 		test.addProperty("env name", applicationService.getEnvironmentName());
 		test.addProperty("instance", applicationService.getInstanceType());
 		test.add("pages from query", applicationService.getResources(queryBuilder, resourceResolver.adaptTo(Session.class)));
+		try {
+			test.add("pages from query using system resolver", applicationService.getResourcesUsingSystemResourceResolver(queryBuilder));
+		} catch (LoginException e) {
+			e.printStackTrace();
+		}
 		
 		response.setContentType("application/json");
 		response.getWriter().write(test.toString());

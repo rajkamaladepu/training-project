@@ -8,6 +8,7 @@ import java.util.Optional;
 import javax.jcr.Session;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
@@ -22,6 +23,7 @@ import org.slf4j.LoggerFactory;
 
 import com.aem.training.site.core.services.ApplicationService;
 import com.aem.training.site.core.services.config.ApplicationConfiguration;
+import com.aem.training.site.core.utils.Utils;
 import com.day.cq.commons.Externalizer;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.QueryBuilder;
@@ -103,4 +105,31 @@ public class ApplicationServiceImpl implements ApplicationService {
 		return pageResourcesJson;
 	}
 
+	@Override
+	public JsonArray getResourcesUsingSystemResourceResolver(QueryBuilder queryBuilder) throws LoginException {
+		
+		ResourceResolver systemResourceResolver = Utils.getResolver(resolverFactory);
+		Session session = systemResourceResolver.adaptTo(Session.class);
+		
+		final Map<String, String> predicateMap = new HashMap<>();
+		predicateMap.put(PathPredicateEvaluator.PATH, "/content");
+		predicateMap.put(TypePredicateEvaluator.TYPE, NameConstants.NT_PAGE);
+		predicateMap.put("1_property", "@jcr:content/cq:template");
+		predicateMap.put("1_property.value", "/conf/aem-training-site/settings/wcm/templates/page-content");
+		predicateMap.put("orderby", "@jcr:content/cq:lastModified");
+		predicateMap.put("orderby.sort", "desc");
+		predicateMap.put("p.limit", "10");
+		
+		Iterator<Resource> resources = queryBuilder.createQuery(PredicateGroup.create(predicateMap),session).getResult().getResources();
+		JsonArray pageResourcesJson = new JsonArray();
+		while (resources.hasNext()) {
+			Resource resource = resources.next();
+			JsonObject pageResourceJson = new JsonObject();
+			pageResourceJson.addProperty("pagePath", resource.getPath());
+			pageResourceJson.addProperty("Resource Name", resource.getName());
+			pageResourcesJson.add(pageResourceJson);
+		}
+		return pageResourcesJson;
+	}
+	
 }
