@@ -258,9 +258,6 @@
                                         </column>
                                     </items>
                                 </field>
-                                <granite:data
-                                    jcr:primaryType="nt:unstructured"
-                                    max-items="2" />
                             </featureItems>
                         </items>
                     </column>
